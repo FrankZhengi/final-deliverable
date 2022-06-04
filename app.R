@@ -5,7 +5,10 @@ usregion <- read.csv("data/usregiongas.csv")
 
   ui <- fluidPage(
     navbarPage("Final Project Introduction",
-               ipage_1
+               ipage_1,
+               ipage_2,
+               ipage_3,
+               summary
     )
   )
 
