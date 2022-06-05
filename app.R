@@ -2,7 +2,10 @@ library(shiny)
 library(ggplot2)
 library(dplyr)
 
+source("ipage3.R")
+
 usregion <- read.csv("data/usregiongas.csv")
+minimized_df <- us_city_avg_df
 
   ui <- fluidPage(
     navbarPage("Final Project",
@@ -49,6 +52,23 @@ usregion <- read.csv("data/usregiongas.csv")
         paste0("The region with the largest gas price is the " , region_found, ".")
       }
     })
+    
+    # plot output for interactive page 3
+    output$price_trend <- renderPlot({
+        minimized_df <- filter(us_city_avg_df, Year >= input$min_year)
+        ggplot(minimized_df, mapping = aes(x = Year, y = yearly_average)) + 
+        geom_line() +
+        geom_point() +
+        labs(title = "US Yearly City Average Gas Prices",
+             subtitle = "unleaded regular gasoline, per gallon",
+             y = "Yearly Average Gas Price (in USD)")
+    })
+    
+    # table output for interactive page 3
+    output$year_price_gas <- renderTable({
+      nearPoints(minimized_df, input$single_year, xvar = "Year", yvar = "yearly_average")
+    })
+    
   }
 
   shinyApp(ui = ui, server = server)
