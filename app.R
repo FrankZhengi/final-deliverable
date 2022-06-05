@@ -5,16 +5,17 @@ library(dplyr)
 usregion <- read.csv("data/usregiongas.csv")
 
   ui <- fluidPage(
-    navbarPage("Final Project Introduction",
+    navbarPage("Final Project",
+               intro,
                ipage_1,
+               ipage_2,
+               ipage_3,
+               summary
     )
   )
 
   
   server <- function(input, output) {
-    
-
-    
 
     # plot of region gas prices 
     output$regionplot <- renderPlot({
