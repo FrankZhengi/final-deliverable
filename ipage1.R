@@ -9,7 +9,8 @@ years <- usregion %>%
 
 ipage_1 <- tabPanel("Interactive Page 1", 
                     selectInput(inputId = "year_chosen", label = "What year would you like to chose?",
-                                choices = list("1993" = 1993, "1994" = 1994), selected = 1),
-                    plotOutput("regionplot")
+                                choices = years, selected = 1),
+                    plotOutput("regionplot"),
+                    textOutput("regionmax")
 ) 
 
