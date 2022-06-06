@@ -66,8 +66,8 @@ minimized_df <- us_city_avg_df
     output$ye <- renderPlotly({
       req(input$USyears)
       if (identical(input$USyears, "")) return(NULL)
-      ye <- ggplot(data = filter(usReport, Year %in% input$USyears)) +
-        geom_line(aes(Year, median, group = Year))
+      ye <- ggplot(data = filter(usReport, Year %in% input$USyears), mapping = aes(Year, median)) +
+        geom_line()
       height <- session$clientData$output_ye_height
       width <- session$clientData$output_ye_width
       ggplotly(ye, height = height, width = width)
