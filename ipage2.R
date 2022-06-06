@@ -15,7 +15,7 @@ USyear <- unique(usReport$Year)
 
 ipage_2 <- tabPanel("Interative Page 2", fluid = T,
                     selectizeInput(
-                      inputId = "USyear",
+                      inputId = "USyears",
                       label = NULL,
                       choices = c("Choose a year" = "", USyear),
                       multiple = TRUE
