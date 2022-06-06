@@ -57,7 +57,7 @@ minimized_df <- us_city_avg_df
         paste0("The region with the largest gas price is the " , region_found, ".")
       }
     })
-    )
+    
 
     
     
