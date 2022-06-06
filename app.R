@@ -1,6 +1,7 @@
 library(shiny)
 library(ggplot2)
 library(dplyr)
+library(plotly)
 
 source("ipage3.R")
 
@@ -55,25 +56,20 @@ minimized_df <- us_city_avg_df
     
     
     USyears <- unique(usReport$Year)
-    
     #plot output for interactive page 2
     output$ye <- renderPlotly({
       req(input$USyears)
       if (identical(input$USyears, "")) return(NULL)
-      yearofUS <- ggplot(data = filter(usReport, Year %in% input$USyears)) +
+      ye <- ggplot(data = filter(usReport, Year %in% input$USyears)) +
         geom_line(aes(year,median,group = Year))
-      height <- session$clientData$output_p_height
-      width <- session$clientData$output_p_width
-      ggploty(ye,height = height, width = width)
+      #height <- session$clientData$output_p_height
+      #width <- session$clientData$output_p_width
+      ggploty(ye, height = height, width = width)
     })
   }
   
         
 
-  
-  
-    
-    
     # plot output for interactive page 3
     output$price_trend <- renderPlot({
         minimized_df <- filter(us_city_avg_df, Year >= input$min_year)

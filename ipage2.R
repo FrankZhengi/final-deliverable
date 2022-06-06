@@ -13,14 +13,13 @@ USyears <- unique(usReport$Year)
 
 ipage_2 <- tabPanel("Interative Page 2", fluid = T,
                     selectizeInput(
-                      intputId = "USyears",
+                      inputId = "USyears",
                       label = NULL,
                       choices = c("Choose a year" = "", yearofUS),
                       multiple = TRUE
                     ),
                     plotlyOutput(outputId = "ye")
 )
-
                   
                     
                     
