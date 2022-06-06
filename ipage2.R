@@ -8,6 +8,7 @@ library(plotly)
 
 usReport <- read.csv("data/usReport.csv", skip = 6) 
 
+usReport$median = apply(usReport, 1, median, na.rm=T)
 
 USyears <- unique(usReport$Year)
 
