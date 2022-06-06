@@ -10,6 +10,8 @@ summary <- tabPanel(
       most commonly had the highest gas prices out of all other regions. According
       to the graph on the third visualization, there is an upward trendline; each
       year gas prices has generally increased."),
+    h4("Gas prices Mean of Regions 1993 to 2021"),
+    tableOutput("sumtable"),
     h4("Gas prices reach a peak high then decrease in price."),
     p("Based from the data from ",  code(("usReport.csv")), ", gas prices reach
       a peak high then decrease in value the following years. In 2012, gas prices

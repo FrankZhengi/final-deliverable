@@ -70,7 +70,7 @@ minimized_df <- us_city_avg_df
     output$ye <- renderPlotly({
       req(input$USyears)
       if (identical(input$USyears, "")) return(NULL)
-      ye <- ggplot(data = filter(usReport, Year %in% input$USyears), mapping = aes(Year, median)) +
+      ye <- ggplot(data = filter(usReport, Year %in% input$USyears), mapping = aes(Year, mean)) +
         geom_line()
       height <- session$clientData$output_ye_height
       width <- session$clientData$output_ye_width
@@ -95,7 +95,16 @@ minimized_df <- us_city_avg_df
     output$year_price_gas <- renderTable({
       nearPoints(minimized_df, input$single_year, xvar = "Year", yvar = "yearly_average")
     })
+    
+    output$sumtable <- renderTable({
+      region_names <- gsub("\\.", " ", colnames(usregion))
+      regiontable <- usregion %>% 
+        summarize_at(vars(East.Coast:West.Coast..PADD.5.), mean, na.rm = T)
+      colnames(regiontable) <- region_names[-1]
+      regiontable
+    })
   }
+  
   
     
   

@@ -7,7 +7,8 @@ library(shiny)
 library(plotly)
 
 usReport <- read.csv("data/usReport.csv", skip = 6) 
-usReport$mean = apply(usReport, 1, mean, na.rm=T)
+usReport_no_date <- usReport %>% 
+usReport$mean = apply(usReport, 1, mean, na.rm = T)
 
 
 USyear <- unique(usReport$Year)
