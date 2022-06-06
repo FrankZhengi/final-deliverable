@@ -11,9 +11,9 @@ intro<- tabPanel(
       code(("uscitiesgas.csv")), ", ", code(("usgas.csv")),", and", 
       code(("usregiongas.csv")),"reveal gas prices from various states, cities, 
       and years. In this report, some major questions are the following:" ,
-      span ("what is the general trendline of gas prices? Are there any notable 
-      outliers? If so, what may be the reason for the outliers? When were gas prices
-      the highest?", style = "color:blue"), "The following visualizations
+      span ("which region has the highest gas prices in America? How has gas prices
+      changed throughout time? When were gas prices the highest? Are there any 
+      outliers?", style = "color:blue"), "The following visualizations
       utilizes the data to depict how gas prices have dramtically changed 
       throughout the years in the Unites States and seek to answer the questions
       above.")
