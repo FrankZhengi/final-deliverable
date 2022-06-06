@@ -62,25 +62,21 @@ minimized_df <- us_city_avg_df
     
     
     # Interactive page 2
+
+    
+    
+    USyears <- unique(usReport$Year)
+    #plot output for interactive page 2
     output$ye <- renderPlotly({
-      plot_ly(usReport, x = ~Year, y = ~median) %>%
-        filter(Jan %in% input$USyears) %>%
-        group_by(Jan) %>%
-        add_lines()
+      req(input$USyears)
+      if (identical(input$USyears, "")) return(NULL)
+      ye <- ggplot(data = filter(usReport, Year %in% input$USyears), mapping = aes(Year, mean)) +
+        geom_line()
+      height <- session$clientData$output_ye_height
+      width <- session$clientData$output_ye_width
+      ggplotly(ye, height = height, width = width)
     })
-  
-    # USyears <- unique(usReport$Year)
-    # #plot output for interactive page 2
-    # output$ye <- renderPlotly({
-    #   req(input$USyears)
-    #   if (identical(input$USyears, "")) return(NULL)
-    #   ye <- ggplot(data = filter(usReport, Year %in% input$USyears), mapping = aes(Year, median)) +
-    #     geom_line()
-    #   height <- session$clientData$output_ye_height
-    #   width <- session$clientData$output_ye_width
-    #   ggplotly(ye, height = height, width = width)
-    # })
-  
+
   
         
 
