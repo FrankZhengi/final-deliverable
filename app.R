@@ -18,7 +18,7 @@ minimized_df <- us_city_avg_df
   )
 
   
-  server <- function(input, output) {
+  server <- function(input, output, session) {
 
     # plot of region gas prices 
     output$regionplot <- renderPlot({
@@ -52,6 +52,27 @@ minimized_df <- us_city_avg_df
         paste0("The region with the largest gas price is the " , region_found, ".")
       }
     })
+    
+    
+    USyears <- unique(usReport$Year)
+    
+    #plot output for interactive page 2
+    output$ye <- renderPlotly({
+      req(input$USyears)
+      if (identical(input$USyears, "")) return(NULL)
+      yearofUS <- ggplot(data = filter(usReport, Year %in% input$USyears)) +
+        geom_line(aes(year,median,group = Year))
+      height <- session$clientData$output_p_height
+      width <- session$clientData$output_p_width
+      ggploty(ye,height = height, width = width)
+    })
+  }
+  
+        
+
+  
+  
+    
     
     # plot output for interactive page 3
     output$price_trend <- renderPlot({
