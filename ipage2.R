@@ -15,7 +15,7 @@ ipage_2 <- tabPanel("Interative Page 2", fluid = T,
                     selectizeInput(
                       inputId = "USyears",
                       label = NULL,
-                      choices = c("Choose a year" = "", yearofUS),
+                      choices = c("Choose a year" = "", USyears),
                       multiple = TRUE
                     ),
                     plotlyOutput(outputId = "ye")

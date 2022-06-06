@@ -53,6 +53,8 @@ minimized_df <- us_city_avg_df
         paste0("The region with the largest gas price is the " , region_found, ".")
       }
     })
+    )
+
     
     
     USyears <- unique(usReport$Year)
@@ -61,12 +63,12 @@ minimized_df <- us_city_avg_df
       req(input$USyears)
       if (identical(input$USyears, "")) return(NULL)
       ye <- ggplot(data = filter(usReport, Year %in% input$USyears)) +
-        geom_line(aes(year,median,group = Year))
-      #height <- session$clientData$output_p_height
-      #width <- session$clientData$output_p_width
-      ggploty(ye, height = height, width = width)
+        geom_line(aes(year, median, group = Year))
+      height <- session$clientData$output_ye_height
+      width <- session$clientData$output_ye_width
+      ggplotly(ye, height = height, width = width)
     })
-  }
+  
   
         
 
