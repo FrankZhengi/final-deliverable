@@ -12,16 +12,29 @@ usReport$median = apply(usReport, 1, median, na.rm=T)
 
 USyears <- unique(usReport$Year)
 
-ipage_2 <- tabPanel("Interative Page 2", fluid = T,
+ipage_2 <- tabPanel("Interative Page 2", 
                     selectizeInput(
                       inputId = "USyears",
-                      label = NULL,
-                      choices = c("Choose a year" = "", USyears),
+                      label = "Select a Year",
+                      choices = unique(usReport$Year),
                       multiple = TRUE
                     ),
                     plotlyOutput(outputId = "ye")
 )
-                  
+
+
+
+
+# ipage_2 <- tabPanel("Interative Page 2", fluid = T,
+#                     selectizeInput(
+#                       inputId = "USyears",
+#                       label = NULL,
+#                       choices = c("Choose a year" = "", USyears),
+#                       multiple = TRUE
+#                     ),
+#                     plotlyOutput(outputId = "ye")
+# )
+#                   
                     
                     
                     
