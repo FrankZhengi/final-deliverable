@@ -21,9 +21,11 @@ ipage_3 <- tabPanel("Interactive Page 3",
                           max = max(us_city_avg_df$Year),
                           value = min(us_city_avg_df$Year)
                         ),
+                        h4("The trends of Gas Prices"),
                         p("This page seeks to answer the question of how gas prices
                            has changed over the years. From the graph we can see that
-                           the current price of gas is the highest it has ever been 
+                           the current average price of gas across the US is the highest
+                           it has ever been 
                            when looking at the last 45 years or so. The last time that
                            gas prices has come close to the current price was around
                            2012. We can see a general trend of increasing gas prices 
