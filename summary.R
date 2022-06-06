@@ -15,8 +15,14 @@ summary <- tabPanel(
       a peak high then decrease in value the following years. In 2012, gas prices
       in the United States reached an all-time high, averaging $3.64 per gallon.
       In 2016 however, gas prices decreased to a yearly average of $2.14 per
-      gallon, a 41% decrease compared to 2012. Gas prices have risen even higher
-      than 2012, indicating that in upcoming years gas prices may decrease."),
+      gallon, a 41% decrease compared to 2012. Gas prices have recently risen 
+      even higher than 2012, indicating that in upcoming years gas prices may 
+      decrease for a short period of time."),
+    h4("Gas prices are a reflection of the economy."),
+    p("Varying gas prices can often reflect the economy of the country. One reason
+      gas may have peaked in 2012 is due to rising tensions between Iran and the
+      West. Western countries would not be able receive oil from Iran, a major
+      oil supply country."),
     h4("Gas prices will continue to increase."),
     p("Data from datasets ", code(("usReport.csv")), ", ", 
       code(("uscitiesgas.csv")), ", and", code(("uscitiesgas.csv")), "all reveal

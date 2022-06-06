@@ -20,7 +20,7 @@ ipage_2 <- tabPanel("Interative Page 2", fluid = T,
                       span of 46 years, and compare how the average prices of -- ie. 1980 -- differed from the average 
                       gas prices of year 2000. We have a range from the year 1976, to 2022"),
                     selectizeInput(
-                      inputId = "USyear",
+                      inputId = "USyears",
                       label = NULL,
                       choices = c("Select a year" = "", USyear),
                       multiple = TRUE
