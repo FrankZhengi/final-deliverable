@@ -68,8 +68,10 @@ minimized_df <- us_city_avg_df
     output$year_price_gas <- renderTable({
       nearPoints(minimized_df, input$single_year, xvar = "Year", yvar = "yearly_average")
     })
-    
   }
-
-  shinyApp(ui = ui, server = server)
+  }
+)
+    
+  
+shinyApp(ui = ui, server = server)
   
