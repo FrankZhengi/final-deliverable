@@ -3,7 +3,11 @@ library(ggplot2)
 library(dplyr)
 library(plotly)
 
+source("intro.r")
+source("ipage1.R")
+source("ipage2.R")
 source("ipage3.R")
+source("summary.R")
 
 usregion <- read.csv("data/usregiongas.csv")
 minimized_df <- us_city_avg_df
